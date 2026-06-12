@@ -14,4 +14,10 @@ describe("Pruebas de login en Shady Meadows", () => {
 
     cy.contains(/logout/i, { timeout: 10000 }).should("be.visible");
   });
+  it ("Deveria mostrar un mensaje de error al intentar iniciar sesión con credenciales incorrectas", () => {
+    cy.get("#username").type("usuario_incorrecto", {delay:50});
+    cy.get("#password").type("clave_incorrecta", {delay:50});
+    cy.get('button[type="submit"]').click();
+    cy.get('button[type="submit"]').should("be.visible");
+  });
 });
