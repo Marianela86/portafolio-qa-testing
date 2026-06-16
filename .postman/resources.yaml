@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: eb2b24b9-fa6a-4faf-8d70-fe0ddeff37fa
+
+localResources:
+  collections:
+    - ..\api_tests_collection.json
