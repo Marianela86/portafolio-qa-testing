@@ -20,6 +20,15 @@ describe("Pruebas de login en Shady Meadows", () => {
     cy.get('button[type="submit"]').click();
     cy.get('button[type="submit"]').should("be.visible");
   });
+  it("Debería mostrar mensaje de error usando datos de fixture", () => {
+  cy.fixture("usuarios.json").then((usuarios) => {
+    cy.get("#username").type(usuarios.invalido.username);
+    cy.get("#password").type(usuarios.invalido.password);
+    cy.get('button[type="submit"]').click();
+    cy.get(".alert.alert-danger", { timeout: 10000 }).should("contain", "Invalid credentials");
+
+  });
+  });
   it("Deveria mostrar un mensaje de error por campos obligatorios vacíos", () => {
     cy.get('button[type="submit"]').click();
     cy.get('button[type="submit"]').should("be.visible");
